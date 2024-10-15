@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import TableSearchIcon from "@/images/table-search.svg";
 import FilterIcon from "@/images/filter.svg";
@@ -7,7 +5,6 @@ import ShortByIcon from "@/images/short-by.svg";
 import ThreeDotIcon from "@/images/three-dot.svg";
 import style from "./table-options.module.scss";
 import clsx from "clsx";
-import Dropdown from "react-bootstrap/Dropdown";
 
 const TableOptions = () => {
     return (
@@ -24,19 +21,10 @@ const TableOptions = () => {
                     <Image src={FilterIcon} height={16} width={16} alt="filter icon" />
                     Filter
                 </button>
-                <Dropdown>
-                    <Dropdown.Toggle>
-                        <button className={style.filter_btn}>
-                            <Image src={ShortByIcon} height={16} width={16} alt="filter icon" />
-                            Short by
-                        </button>
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#">Status</Dropdown.Item>
-                        <Dropdown.Item href="#">Date & Time</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+                <button className={style.filter_btn}>
+                    <Image src={ShortByIcon} height={16} width={16} alt="filter icon" />
+                    Short by
+                </button>
                 <button className={clsx(style.filter_btn, style.three_dot)}>
                     <Image src={ThreeDotIcon} height={16} width={16} alt="filter icon" />
                 </button>

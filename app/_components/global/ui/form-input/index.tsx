@@ -1,7 +1,7 @@
 "use client";
 
 // dependencies
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 // images
 import EyeOpen from "@/images/eye-open.svg";
@@ -12,26 +12,28 @@ import UploadFileIcon from "@/images/upload-file.svg";
 // styles
 import style from "./form-input.module.scss";
 import { ChangeEventHandler, useState } from "react";
+import { UseFormRegister } from "react-hook-form";
 
 interface FormInputProps {
     label: string;
     type: string;
-    name?: string;
+    name?: string | undefined;
     value?: string;
     placeholder: string;
     className?: string;
     id: string;
     error?: string;
     touched?: boolean;
-    inputIcon?: any;
+    inputIcon?: StaticImageData;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+    register?: UseFormRegister<any>;
 }
 
 interface FormSelectInput {
     children: React.ReactNode;
     label?: React.ReactNode | null;
-    dropdownIcon?: any;
+    dropdownIcon?: StaticImageData;
     error?: string;
     touched?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -64,8 +66,9 @@ export const FormInput = ({
     className,
     error,
     inputIcon,
-    onChange,
-    onBlur,
+    // onChange,
+    // onBlur,
+    register
 }: FormInputProps): JSX.Element => {
     const [passwordToggle, setPasswordToggle] = useState<boolean>(false);
 
@@ -75,13 +78,14 @@ export const FormInput = ({
                 <label htmlFor={id}>{label}</label>
                 <div className={style.form_input}>
                     <input
+                       {...(register && name ? register(name) : {})} 
                         type={type === "password" ? (passwordToggle ? "text" : "password") : type}
                         placeholder={placeholder}
                         id={id}
                         name={name}
                         value={value}
-                        onChange={onChange}
-                        onBlur={onBlur}
+                        // onChange={onChange}
+                        // onBlur={onBlur}
                     />
                     {type === "password" && (
                         <>

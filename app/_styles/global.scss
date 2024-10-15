@@ -480,24 +480,3 @@ table {
         }
     }
 }
-
-// reset bootstrap dropdown css
-
-.dropdown-toggle {
-    &,
-    &::before,
-    &::after,
-    &:hover,
-    &:focus,
-    &:focus-within,
-    &:focus-visible,
-    &:active {
-        all: unset !important;
-    }
-}
-
-.dropdown-item {
-    &:active {
-        background: $secondary_color;
-    }
-}
