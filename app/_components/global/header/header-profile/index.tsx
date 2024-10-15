@@ -21,7 +21,7 @@ const HeaderProfile = () => {
 
     const userLogout = () => {
         signOut();
-        router.push("/admin/login");
+        router.push("/login");
     };
 
     return (

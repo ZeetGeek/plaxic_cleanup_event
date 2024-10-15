@@ -109,7 +109,7 @@ const LoginForm = () => {
                     touched={touched.password}
                 />
 
-                <Link href="/admin/forgot-password" title="forgot password" className="form_forgot_password">
+                <Link href="/forgot-password" title="forgot password" className="form_forgot_password">
                     Forgot Password
                 </Link>
 

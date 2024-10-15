@@ -28,7 +28,7 @@ const Header = ({ onClick }: HeaderProps): JSX.Element => {
                     <Image src={menuIcon} height={24} width={24} alt="menu icon" />
                 </button>
 
-                <Link href="/admin" title="plaxic">
+                <Link href="/" title="plaxic">
                     <Image src={logo} height={62} width={138} alt="plaxic logo" className={style.logo} />
                 </Link>
             </div>

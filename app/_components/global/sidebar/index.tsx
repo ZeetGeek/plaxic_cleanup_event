@@ -22,7 +22,7 @@ const Sidebar = ({ sidebarShow, onClick }: SidebarProps): JSX.Element => {
         <aside className={`${style.sidebar} ${sidebarShow ? style.show : ""}`}>
             <div className={`${style.logo_wp} d-row-between`}>
                 <div className={style.logo}>
-                    <Link href="/admin" title="plaxic">
+                    <Link href="/" title="plaxic">
                         <Image src={logo} height={62} width={138} alt="plaxic logo" />
                     </Link>
                 </div>
