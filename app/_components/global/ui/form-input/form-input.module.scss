@@ -1,0 +1,123 @@
+.form_input_box {
+    width: 100%;
+
+    label,
+    .form_upload_file > label {
+        color: $form_label;
+        font-size: $font_md;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        font-family: var(--font-sarabun);
+        margin-bottom: 7px;
+    }
+
+    .form_input {
+        position: relative;
+
+        input,
+        textarea {
+            border: 1px solid rgba(0, 0, 0, 0.2) !important;
+            background: $white_color;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        input,
+        textarea:focus {
+            border: 1px solid $primary_color;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            color: $primary_color !important;
+            padding: 7px 14px;
+
+            &,
+            &::placeholder {
+                color: $form_label;
+                font-family: var(--font-sarabun);
+                font-size: $font_md;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                letter-spacing: -0.32px;
+            }
+        }
+
+        input[type="file"] {
+            background: red;
+        }
+
+        .password_hide_show {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            translate: 0 -50%;
+            height: 30px;
+            width: 30px;
+            background-color: $white_color;
+        }
+
+        .input_icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 18px;
+            width: 14px;
+            height: auto;
+            filter: brightness(0) saturate(100%) invert(37%) sepia(20%) saturate(509%) hue-rotate(173deg)
+                brightness(95%) contrast(85%);
+        }
+    }
+}
+
+.form_select_wp {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: $white_color;
+    border-radius: 5px;
+    position: relative;
+
+    .form_select {
+        width: 100%;
+        outline: none;
+        border: none;
+        color: $primary_color !important;
+        padding: 7px 14px;
+        border-radius: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: none;
+    }
+
+    .dropdown_icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 18px;
+    }
+}
+
+.upload_file_input {
+    label {
+        @include flex(center, center);
+        border: 1px solid $light_gray !important;
+        background: #efefef;
+        border-radius: 5px;
+        width: 100%;
+        padding: 11px 14px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background: $light_gray;
+        }
+
+        img {
+            filter: brightness(0) saturate(100%) invert(0%) sepia(100%) saturate(0%) hue-rotate(198deg) brightness(105%)
+                contrast(105%);
+        }
+    }
+}

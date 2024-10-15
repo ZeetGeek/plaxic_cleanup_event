@@ -1,0 +1,35 @@
+{
+    "name": "plaxic_clean_up_event",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "clsx": "^2.1.1",
+        "firebase": "^10.14.0",
+        "formik": "^2.4.6",
+        "moment": "^2.30.1",
+        "next": "14.2.15",
+        "react": "^18",
+        "react-bootstrap": "^2.10.5",
+        "react-bootstrap-daterangepicker": "^8.0.0",
+        "react-dom": "^18",
+        "sass": "^1.79.4",
+        "yup": "^1.4.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "@zeit/next-css": "^1.0.1",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.15",
+        "next-purgecss": "^4.0.0",
+        "typescript": "^5"
+    }
+}

@@ -1,0 +1,63 @@
+.table_options {
+    padding: 16px 20px;
+    @include flex(space-between, center);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    .search {
+        @include flex(flex-start, center);
+        width: 280px;
+        height: 40px;
+        padding: 0px 16px;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        border: 1px solid #e8e9ed;
+        flex-shrink: 0;
+
+        img {
+            filter: brightness(0) saturate(100%) invert(35%) sepia(23%) saturate(406%) hue-rotate(172deg)
+                brightness(100%) contrast(89%);
+        }
+
+        input {
+            &,
+            &::placeholder {
+                color: #556476;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .advance_filter {
+        @include flex(flex-end, center, 12px);
+
+        .filter_btn {
+            display: flex;
+            height: 40px;
+            min-width: 40px;
+            padding: 0px 16px;
+            @include flex(center, center, 4px);
+            border-radius: 8px;
+            border: 1px solid #e8e9ed;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            color: #556476;
+            transition: 0.3s;
+
+            &:hover {
+                background: $bg_color;
+            }
+
+            img {
+                filter: brightness(0) saturate(100%) invert(38%) sepia(35%) saturate(278%) hue-rotate(172deg)
+                    brightness(91%) contrast(88%);
+            }
+
+            &.three_dot {
+                padding: 0px;
+                width: 40px;
+            }
+        }
+    }
+}

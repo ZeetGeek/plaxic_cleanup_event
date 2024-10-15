@@ -1,0 +1,17 @@
+.notification {
+    .notification_inner {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: 6px;
+            right: 6px;
+            height: 8px;
+            width: 8px;
+            border: 1px solid $primary_color;
+            background-color: $secondary_color;
+            border-radius: 100%;
+        }
+    }
+}

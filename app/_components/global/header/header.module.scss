@@ -1,0 +1,25 @@
+.header {
+    background-color: $primary_color;
+    height: 4.8125rem;
+    padding: 0px 1.75rem;
+    color: $white_color;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    @include flex(flex-start, center);
+
+    .mobile_menu {
+        display: none;
+
+        @media (width < 992px) {
+            @include flex(flex-start, center, 10px);
+        }
+    }
+
+    .header_extras {
+        margin-left: auto;
+        @include flex(flex-end, center, 16px);
+    }
+}

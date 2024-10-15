@@ -1,0 +1,105 @@
+.table_data {
+    table {
+        thead {
+            tr {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        tbody {
+            tr:not(:last-child) {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            tr td:nth-child(1) {
+                width: 10%;
+            }
+
+            tr td:nth-child(2) {
+                width: 12%;
+            }
+
+            tr td:nth-child(3) {
+                width: 12%;
+            }
+
+            tr td:nth-child(4) {
+                width: 26%;
+            }
+
+            tr td:nth-child(5) {
+                width: 10%;
+            }
+
+            tr td:nth-child(6) {
+                width: 10%;
+            }
+
+            tr td:nth-child(7) {
+                width: 10%;
+            }
+        }
+    }
+
+    .event_name {
+        @include flex(flex-start, center, 6px);
+
+        img {
+            border-radius: 100%;
+            border: 1px solid $light_gray;
+        }
+    }
+
+    .description {
+        @include text-ellipsis(100%);
+    }
+
+    .event_status {
+        display: inline-block;
+        width: 72px;
+        height: 26px;
+        border-radius: 2px;
+        @include flex(center, center);
+        line-height: 1;
+        font-size: 12px;
+
+        &.completed {
+            background: rgba(14, 100, 0, 0.1);
+            color: #0e6400;
+        }
+
+        &.upcoming {
+            color: #4a58ec;
+            background: rgba(74, 88, 236, 0.1);
+        }
+
+        &.ongoing {
+            color: #c08a00;
+            background: rgba(192, 138, 0, 0.1);
+        }
+    }
+
+    .edit_btn {
+        background: $light_gray;
+        padding: 2px 12px;
+        border-radius: 3px;
+        @include flex(center, center, 6px);
+        transition: 0.3s;
+
+        &:hover {
+            background: #cccccc;
+        }
+    }
+
+    .delete_btn {
+        padding: 2px 12px;
+        border-radius: 3px;
+        background: rgba(255, 0, 0, 0.11);
+        color: #cd2606;
+        transition: 0.3s;
+
+        &:hover {
+            background: rgba(255, 0, 0, 0.2);
+        }
+    }
+}

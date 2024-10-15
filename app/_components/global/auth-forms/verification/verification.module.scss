@@ -1,0 +1,32 @@
+.opt_verification {
+    .opt_box {
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        background: #fff;
+        height: clamp(2.5rem, 2.2875rem + 1.0625vw, 3.5625rem);
+        width: clamp(2.5rem, 2.2875rem + 1.0625vw, 3.5625rem);
+        color: #000;
+        font-family: var(--font-sarabun);
+        font-size: $h2_title;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        letter-spacing: -0.52px;
+        text-align: center;
+        margin-right: clamp(0.875rem, 0.4875rem + 1.9375vw, 2.8125rem);
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &:focus {
+            border: 1px solid $primary_color;
+        }
+
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}

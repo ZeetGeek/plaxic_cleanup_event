@@ -1,0 +1,55 @@
+.sidebar_links {
+    margin-top: 70px;
+
+    .sidebar_link_wp .sidebar_link,
+    .sub_links_wp .sub_link {
+        padding: 14px 16px 14px 14px;
+        width: 100%;
+        color: $white_color;
+    }
+
+    .sidebar_link_wp {
+        .sidebar_link {
+            border-left: 5px solid transparent;
+
+            &.active,
+            &:has(.subLink_active) {
+                background-color: $secondary_color;
+                border-left: 5px solid $white_color;
+
+                &:hover {
+                    background-color: $secondary_color;
+                }
+            }
+
+            &:hover {
+                background-color: #ffffff30;
+            }
+        }
+
+        & > li:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    .sub_links_wp {
+        .sub_link {
+            // background-color: #3474ff30;
+            padding-left: 50px;
+
+            &.subLink_active,
+            &:hover {
+                background: rgba(52, 116, 255, 0.2);
+            }
+        }
+    }
+
+    .sidebar_link_icon {
+        filter: brightness(0) saturate(100%) invert(80%) sepia(71%) saturate(2%) hue-rotate(161deg) brightness(112%)
+            contrast(101%);
+    }
+
+    .sidebar_link:has(.subLink_active) {
+        background: red !important;
+    }
+}

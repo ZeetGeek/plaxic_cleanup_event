@@ -1,0 +1,503 @@
+// variables
+@import "_variables.scss";
+
+// bootstrap
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap-daterangepicker/daterangepicker.css";
+
+// mixin
+@import "_mixins.scss";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-sarabun);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: $bg_color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-montserrat) !important;
+}
+
+input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.img-w-full {
+    width: 100%;
+    min-height: 300px;
+}
+
+.bg-fit {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.w-full {
+    width: 100% !important;
+}
+
+button {
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+// input
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+}
+
+table {
+    thead {
+        background: rgba(52, 116, 255, 0.05);
+    }
+
+    tr {
+        td,
+        th {
+            padding: 10px 20px;
+            color: $black_color;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+        }
+    }
+}
+
+.plaxic_loading {
+    height: 100vh;
+    width: 100%;
+    background-color: $primary_color;
+    z-index: 999;
+    position: fixed;
+    inset: 0;
+
+    img {
+        animation: rotate 3s infinite linear;
+    }
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.container-0 {
+    padding: 0;
+
+    @media (max-width <= 991px) {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+.row-0 {
+    --bs-gutter-x: 0px;
+}
+
+// height and width
+.h-screen {
+    height: 100vh;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.bg-mask {
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.bg-fit {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.d-row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.d-row-start {
+    @extend .d-row-center;
+    justify-content: flex-start;
+}
+
+.d-row-end {
+    @extend.d-row-center;
+    justify-content: flex-end;
+}
+
+.d-row-between {
+    @extend.d-row-center;
+    justify-content: space-between;
+}
+
+.d-col-center {
+    @extend .d-row-center;
+    flex-direction: column;
+}
+
+.d-col-start {
+    @extend .d-row-center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.d-col-end {
+    @extend .d-row-center;
+    align-items: end;
+    flex-direction: column;
+}
+
+@media (max-width: 991px) {
+    body:has(header .fixed-gl) {
+        height: 100vh;
+        overflow: hidden;
+    }
+}
+
+// spacing classes
+
+.mb-32 {
+    margin-bottom: 32px;
+}
+
+.mt-32 {
+    margin-top: clamp(1.25rem, 1.1rem + 0.75vw, 2rem);
+}
+
+.form_input_mb {
+    margin-bottom: clamp(1.5rem, 1.275rem + 1.125vw, 2.625rem);
+}
+
+// rotate classes
+
+.rotate-180deg {
+    rotate: 180deg;
+    transition: 0.3s;
+}
+
+// heading classes
+.h1_title {
+    font-size: $h1_title;
+    color: $primary_color;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: -1.08px;
+    text-transform: uppercase;
+}
+
+.h2_title {
+    color: $accent_color;
+    font-family: var(--font-sarabun);
+    font-size: $h2_title;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.btn_loader {
+    color: #fff;
+    width: 4px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;
+    transform: translateX(-38px);
+    animation: l21 0.5s infinite alternate linear;
+}
+
+@keyframes l21 {
+    50% {
+        box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px;
+    }
+    100% {
+        box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
+    }
+}
+
+.loading_wp {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loader {
+        height: 4px;
+        width: 130px;
+        --c: no-repeat linear-gradient(#3474ff 0 0);
+        background: var(--c), var(--c), #3474ff30;
+        background-size: 60% 100%;
+        animation: l16 3s infinite;
+    }
+    @keyframes l16 {
+        0% {
+            background-position: -150% 0, -150% 0;
+        }
+        66% {
+            background-position: 250% 0, -150% 0;
+        }
+        100% {
+            background-position: 250% 0, 250% 0;
+        }
+    }
+}
+
+.error_msg,
+.success_msg {
+    margin: 12px 0px;
+    display: inline-block;
+}
+
+.error_msg {
+    color: red;
+}
+
+.success_msg {
+    color: #22c55e;
+}
+
+.dashboard_wp {
+    position: relative;
+    width: $dashboard_wp;
+    height: 100vh;
+    overflow: auto;
+
+    .dashboard_page {
+        padding: 58px 30px 30px 30px;
+
+        @media (max-width: 991px) {
+            padding: 40px 20px;
+        }
+
+        @media (max-width: 575px) {
+            padding: 30px 18px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        width: 100%;
+    }
+}
+
+.dashboard_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 575px) {
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
+    }
+}
+
+.dashboard_wp_box {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: $white_color;
+    padding: clamp(1.25rem, 1.1rem + 0.75vw, 2rem);
+}
+
+.layout_box {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: $white_color;
+    padding: 30px;
+
+    &.no_padding {
+        padding: 0px;
+    }
+}
+
+.form_forgot_password,
+.resend_otp {
+    text-align: end;
+    display: block;
+    color: $forgot_pass_color;
+    font-family: var(--font-sarabun);
+    font-size: $font_md;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: -0.28px;
+    margin-top: 10px;
+
+    &:hover {
+        color: $primary_color;
+    }
+}
+
+.resend_otp {
+    margin-top: 40px !important;
+}
+
+.auth_btn {
+    width: 100%;
+    margin-top: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
+}
+
+.resend_otp + .auth_btn {
+    margin-top: 18px;
+}
+
+.header_icon {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+        background: #ffffff20;
+    }
+}
+
+// bootstrap component css
+
+.bs-dropdown {
+    button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        &:hover {
+            background: #ffffff20;
+        }
+
+        &:active {
+            background: transparent;
+        }
+
+        &::before,
+        &::after {
+            all: initial !important;
+        }
+    }
+
+    .dropdown-item {
+        &.active,
+        &:active,
+        &:hover {
+            background: $secondary_color;
+            color: $white_color;
+        }
+    }
+
+    .icon-rotate {
+        rotate: 180deg;
+    }
+}
+
+.pollution_data {
+    .pollution_data_form {
+        .row {
+            --bs-gutter-x: 36px;
+            row-gap: 22px;
+        }
+    }
+}
+
+// reset bootstrap dropdown css
+
+.dropdown-toggle {
+    &,
+    &::before,
+    &::after,
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &:focus-visible,
+    &:active {
+        all: unset !important;
+    }
+}
+
+.dropdown-item {
+    &:active {
+        background: $secondary_color;
+    }
+}

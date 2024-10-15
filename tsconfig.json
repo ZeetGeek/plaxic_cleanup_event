@@ -1,0 +1,54 @@
+{
+    "compilerOptions": {
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "plugins": [
+            {
+                "name": "next"
+            }
+        ],
+        "paths": {
+            // app
+            "@/*": ["./app/*"],
+
+            // assets
+            "@/assets/*": ["./app/_assets/*"],
+
+            // images
+            "@/images/*": ["./app/_assets/images/*"],
+
+            // styles
+            "@/styles/*": ["./app/_styles/*"],
+
+            // components
+            "@/components/*": ["./app/_components/*"],
+
+            // hooks
+            "@/hooks/*": ["./app/_hooks/*"],
+
+            // hooks
+            "@/context/*": ["./app/_context/*"],
+
+            // firebase
+            "@/firebase/*": ["./app/firebase/*"],
+
+            // hooks
+            "@/schema/*": ["./app/schema/*"],
+
+            // lib
+            "@/lib/*": ["./app/_lib/*"]
+        }
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "exclude": ["node_modules"]
+}
