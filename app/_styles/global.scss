@@ -115,7 +115,7 @@ textarea {
     outline: none;
 }
 
-table {
+table:not(.daterangepicker table) {
     thead {
         background: rgba(52, 116, 255, 0.05);
     }

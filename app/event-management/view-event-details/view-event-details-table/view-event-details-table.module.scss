@@ -1,0 +1,41 @@
+.view_event_details {
+    tbody {
+        td:nth-child(1) {
+            width: 25%;
+        }
+        td:nth-child(2) {
+            width: 25%;
+        }
+        td:nth-child(3) {
+            width: 25%;
+        }
+        td:nth-child(4) {
+            width: 25%;
+        }
+    }
+
+    .volunteer {
+        @include flex(flex-start, center, 6px);
+        img {
+            width: 26px;
+            height: 26px;
+            border-radius: 100%;
+            border: 1px solid $light_gray;
+        }
+    }
+
+    .description {
+        @include text-ellipsis("100%");
+    }
+}
+
+.pagination_wp {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+    padding: 26px 30px;
+
+    & > span {
+        color: $primary_color;
+        font-size: 14px;
+    }
+}

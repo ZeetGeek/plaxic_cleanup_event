@@ -12,6 +12,7 @@ import UploadFileIcon from "@/images/upload-file.svg";
 // styles
 import style from "./form-input.module.scss";
 import { ChangeEventHandler, useState } from "react";
+import DateRangePicker from "react-bootstrap-daterangepicker";
 import { UseFormRegister } from "react-hook-form";
 
 interface FormInputProps {
@@ -19,7 +20,7 @@ interface FormInputProps {
     type: string;
     name?: string | undefined;
     value?: string;
-    placeholder: string;
+    placeholder?: string;
     className?: string;
     id: string;
     error?: string;
@@ -71,7 +72,7 @@ export const FormInput = ({
     className,
     error,
     inputIcon,
-    // onChange,
+    onChange,
     // onBlur,
     register
 }: FormInputProps): JSX.Element => {
@@ -82,17 +83,21 @@ export const FormInput = ({
             <div className={`${style.form_input_box} ${className}`}>
                 <label htmlFor={id}>{label}</label>
                 <div className={style.form_input}>
-                    <input
-                       {...(register && name ? register(name) : {})} 
+                    {type === "date" ? (
+                        <DateRangePicker onApply={onChange}>
+                            <input type="text" id={id} value={value}  />
+                        </DateRangePicker>
+                    ) : (
+                        <input
+                           {...(register && name ? register(name) : {})} 
                         type={type === "password" ? (passwordToggle ? "text" : "password") : type}
-                        placeholder={placeholder}
-                        id={id}
-                        name={name}
-                        value={value}
-                        // onChange={onChange}
-                        // readOnly
-                        // onBlur={onBlur}
-                    />
+                            placeholder={placeholder}
+                            id={id}
+                            name={name}
+                            value={value}
+                        />
+                    )}
+
                     {type === "password" && (
                         <>
                             <div

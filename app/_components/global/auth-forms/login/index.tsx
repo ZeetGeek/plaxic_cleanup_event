@@ -105,9 +105,9 @@ const LoginForm = () => {
                 register={register}
             />
 
-            <Link href="/forgot-password" title="forgot password" className="form_forgot_password">
-                Forgot Password
-            </Link>
+                <Link href="/forgot-password" title="forgot password" className="form_forgot_password">
+                    Forgot Password
+                </Link>
 
             <Button type="submit" title="login" name="login" className="w-100 auth_btn" size="lg">
                 {loginLoading ? <div className="btn_loader"></div> : <>Log In</>}

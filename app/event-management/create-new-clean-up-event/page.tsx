@@ -4,10 +4,11 @@ import { Col, Form, Row } from "react-bootstrap";
 import style from "./create-new-clean-up-event.module.scss";
 import { DateRangePicker } from "react-bootstrap-daterangepicker";
 import {
-  FormInput,
-  FormSelectInput,
-  FormTextareaInput,
-  FormUploadFile,
+    FormDateInput,
+    FormInput,
+    FormSelectInput,
+    FormTextareaInput,
+    FormUploadFile,
 } from "@/_components/global/ui/form-input";
 import calenderIcon from "@/images/calendar.svg";
 import Button from "@/_components/global/ui/button";
@@ -97,6 +98,9 @@ const CreateNewCleanUpEvent = () => {
             return;
         }
     };
+
+    console.log(dateRange,"date");
+    
   return (
     <>
       <section className={style.new_clean_up_event}>
@@ -121,44 +125,14 @@ const CreateNewCleanUpEvent = () => {
                 />
               </Col>
 
-              {/* Date & Time */}
-              <Col lg={6}>
-             
-                <DateRangePicker
-                  initialSettings={{
-                    startDate: dateRange.start,
-                    endDate: dateRange.end,
-                    locale: { format: "MM/DD/YYYY" },
-                  }}
-                  onApply={handleEvent}
-                >
-                  {/* <Form.Group className="mb-4">
-                                <Form.Label>{'Select Date'}</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Select Date..."
-                                    className="input_md"
-                                    value={dateRange.start && dateRange.end ? `${dateRange.start} - ${dateRange.end}` : ''}
-                                    readOnly
-                                />
-                            </Form.Group> */}
-
-                  <FormInput
-                    label="Date and Time"
-                    type="text"
-                    placeholder="Select Date..."
-                    className="input_md"
-                    id="event_date_time"
-                    value={
+                            {/* Date & Time */}
+                            <Col lg={6}>
+                                <FormInput label="Date Time" onChange={handleEvent} type="date" id="event_name" inputIcon={calenderIcon} value={
                       dateRange.start && dateRange.end
                         ? `${dateRange.start} - ${dateRange.end}`
                         : ""
-                    }
-                    inputIcon={calenderIcon}
-                  />
-                  
-                </DateRangePicker>
-              </Col>
+                    } />
+                            </Col>
 
               {/* Location */}
               <Col lg={6}>
