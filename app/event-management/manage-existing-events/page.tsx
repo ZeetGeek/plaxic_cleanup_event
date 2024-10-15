@@ -6,7 +6,7 @@ import TablePagination from "./table-pagination";
 const ManageExistingEvents = () => {
     return (
         <section className={style.manage_existing_events}>
-            <h1 className="h2_title mb-4">Manage Existing Events</h1>
+            <h1 className="h2_title mb-4">Manage Existing Event</h1>
             <div className="layout_box no_padding">
                 <div className={style.event_table}>
                     <TableOptions />
