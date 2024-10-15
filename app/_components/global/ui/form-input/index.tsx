@@ -57,6 +57,8 @@ interface FormUploadFileProps {
     label: string;
     name?: string;
     error?: string;
+     register?: UseFormRegister<any>;
+       onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const FormInput = ({
@@ -88,7 +90,7 @@ export const FormInput = ({
                         name={name}
                         value={value}
                         // onChange={onChange}
-                        readOnly
+                        // readOnly
                         // onBlur={onBlur}
                     />
                     {type === "password" && (
@@ -177,7 +179,7 @@ export const FormTextareaInput = ({
     </div>
 );
 
-export const FormUploadFile = ({ label, error, name }: FormUploadFileProps) => (
+export const FormUploadFile = ({ label, error, name, onChange }: FormUploadFileProps) => (
     <>
         <div className={style.form_input_box}>
             <label>{label}</label>
@@ -185,7 +187,7 @@ export const FormUploadFile = ({ label, error, name }: FormUploadFileProps) => (
                 <label htmlFor="upload-file">
                     <Image src={UploadFileIcon} height={16} width={15} alt="Upload File Icon" />
                 </label>
-                <input type="file" id="upload-file" className="d-none" name={name} />
+                <input type="file" id="upload-file" accept="image/jpg, image/png, image/jpeg" className="d-none"  name={name} onChange={onChange} />
             </div>
             {error && <span className="text-danger text-medium mt-2 d-inline-block">{error}</span>}
         </div>

@@ -27,6 +27,7 @@ interface eventFormInputs {
   location: string;
   description: string;
   status: string;
+  event_image: string;
 }
 
 interface statusData {
@@ -49,6 +50,7 @@ const CreateNewCleanUpEvent = () => {
       event_name: "",
       location: "",
       description: "",
+      event_image: "",
     },
     resolver: yupResolver(eventSchema),
   });
@@ -62,6 +64,11 @@ const CreateNewCleanUpEvent = () => {
 
   const onSubmit = (data: eventFormInputs) => {
     console.log(data, "kkkk");
+
+    const fileInput = data?.event_image?.[0];
+
+    console.log(fileInput,"kkkkkkk");
+    
   };
 
   const statusData: statusData[] = [
@@ -69,6 +76,27 @@ const CreateNewCleanUpEvent = () => {
     { label: "Upcoming", value: "Upcoming" },
     { label: "Completed", value: "Completed" },
   ];
+
+    const handleFileChange = (event:any) => {
+     
+        const file = event.target.files[0];
+        if (file?.type === 'image/jpg' || file?.type === 'image/png' || file?.type === 'image/jpeg') {
+            // setImageFile(file);
+
+            console.log(file,"file");
+            
+            const reader = new FileReader();
+            reader.onload = (event:any) => {
+                // setImage(event.target.result);
+            console.log(event.target.result,"event.target.result");
+
+            };
+            reader.readAsDataURL(file);
+        } else {
+          
+            return;
+        }
+    };
   return (
     <>
       <section className={style.new_clean_up_event}>
@@ -104,7 +132,7 @@ const CreateNewCleanUpEvent = () => {
                   }}
                   onApply={handleEvent}
                 >
-                  <Form.Group className="mb-4">
+                  {/* <Form.Group className="mb-4">
                                 <Form.Label>{'Select Date'}</Form.Label>
                                 <Form.Control
                                     type="text"
@@ -113,9 +141,9 @@ const CreateNewCleanUpEvent = () => {
                                     value={dateRange.start && dateRange.end ? `${dateRange.start} - ${dateRange.end}` : ''}
                                     readOnly
                                 />
-                            </Form.Group>
+                            </Form.Group> */}
 
-                  {/* <FormInput
+                  <FormInput
                     label="Date and Time"
                     type="text"
                     placeholder="Select Date..."
@@ -127,7 +155,8 @@ const CreateNewCleanUpEvent = () => {
                         : ""
                     }
                     inputIcon={calenderIcon}
-                  /> */}
+                  />
+                  
                 </DateRangePicker>
               </Col>
 
@@ -145,7 +174,11 @@ const CreateNewCleanUpEvent = () => {
               </Col>
               {/* Image Upload */}
               <Col lg={6}>
-                <FormUploadFile label="Image Upload" />
+                <FormUploadFile label="Image Upload"  name="event_image"
+                onChange={handleFileChange}
+            // register={register}
+            // error={errors?.event_image?.message} 
+            />
               </Col>
 
               {/* Event Status */}
