@@ -38,6 +38,8 @@ interface FormSelectInput {
     touched?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+    name?: string;
+        register?: UseFormRegister<any>;
 }
 
 interface FormTextareaInputProps {
@@ -48,6 +50,7 @@ interface FormTextareaInputProps {
     value?: string;
     onChange?: ChangeEventHandler<HTMLTextAreaElement>;
     error?: string;
+    register?: UseFormRegister<any>;
 }
 
 interface FormUploadFileProps {
@@ -85,6 +88,7 @@ export const FormInput = ({
                         name={name}
                         value={value}
                         // onChange={onChange}
+                        readOnly
                         // onBlur={onBlur}
                     />
                     {type === "password" && (
@@ -126,12 +130,12 @@ export const FormInput = ({
     );
 };
 
-export const FormSelectInput = ({ children, label = null, dropdownIcon = DropdownIcon, error }: FormSelectInput) => (
+export const FormSelectInput = ({ children, label = null, dropdownIcon = DropdownIcon, error,name,register }: FormSelectInput) => (
     <>
         <div className={style.form_input_box}>
             {label !== null && <label>{label}</label>}
             <div className={`${style.form_select_wp} `}>
-                <select className={style.form_select}>{children}</select>
+                <select className={style.form_select}{...(register && name ? register(name) : {})} >{children}</select>
                 <Image src={dropdownIcon} className={style.dropdown_icon} height={20} width={20} alt="dropdown icon" />
             </div>
             {error ? (
@@ -149,17 +153,19 @@ export const FormTextareaInput = ({
     name,
     label = null,
     className,
-    onChange,
+    // onChange,
     error,
+    register
 }: FormTextareaInputProps) => (
     <div className={style.form_input_box}>
         {label !== null && <label>{label}</label>}
         <div className={style.form_input}>
             <textarea
+            {...(register && name ? register(name) : {})} 
                 placeholder={placeholder}
                 name={name}
                 value={value}
-                onChange={onChange}
+                // onChange={onChange}
                 className={className}
             ></textarea>
         </div>
