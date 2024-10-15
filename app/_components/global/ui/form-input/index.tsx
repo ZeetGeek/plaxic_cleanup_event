@@ -12,13 +12,14 @@ import UploadFileIcon from "@/images/upload-file.svg";
 // styles
 import style from "./form-input.module.scss";
 import { ChangeEventHandler, useState } from "react";
+import DateRangePicker from "react-bootstrap-daterangepicker";
 
 interface FormInputProps {
     label: string;
     type: string;
     name?: string;
     value?: string;
-    placeholder: string;
+    placeholder?: string;
     className?: string;
     id: string;
     error?: string;
@@ -74,15 +75,22 @@ export const FormInput = ({
             <div className={`${style.form_input_box} ${className}`}>
                 <label htmlFor={id}>{label}</label>
                 <div className={style.form_input}>
-                    <input
-                        type={type === "password" ? (passwordToggle ? "text" : "password") : type}
-                        placeholder={placeholder}
-                        id={id}
-                        name={name}
-                        value={value}
-                        onChange={onChange}
-                        onBlur={onBlur}
-                    />
+                    {type === "date" ? (
+                        <DateRangePicker>
+                            <input type="text" id={id} value={value} onChange={onChange} onBlur={onBlur} />
+                        </DateRangePicker>
+                    ) : (
+                        <input
+                            type={type === "password" ? (passwordToggle ? "text" : "password") : type}
+                            placeholder={placeholder}
+                            id={id}
+                            name={name}
+                            value={value}
+                            onChange={onChange}
+                            onBlur={onBlur}
+                        />
+                    )}
+
                     {type === "password" && (
                         <>
                             <div

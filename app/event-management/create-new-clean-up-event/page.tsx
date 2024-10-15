@@ -3,7 +3,13 @@ import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import style from "./create-new-clean-up-event.module.scss";
 import { DateRangePicker } from "react-bootstrap-daterangepicker";
-import { FormInput, FormSelectInput, FormTextareaInput, FormUploadFile } from "@/_components/global/ui/form-input";
+import {
+    FormDateInput,
+    FormInput,
+    FormSelectInput,
+    FormTextareaInput,
+    FormUploadFile,
+} from "@/_components/global/ui/form-input";
 import calenderIcon from "@/images/calendar.svg";
 import Button from "@/_components/global/ui/button";
 import clsx from "clsx";
@@ -40,15 +46,7 @@ const CreateNewCleanUpEvent = () => {
 
                             {/* Date & Time */}
                             <Col lg={6}>
-                                <DateRangePicker timePicker timePicker24Hour onApply={handleEvent}>
-                                    <FormInput
-                                        label="Date and Time"
-                                        type="text"
-                                        placeholder="Select Date & Time"
-                                        id="event_date_time"
-                                        inputIcon={calenderIcon}
-                                    />
-                                </DateRangePicker>
+                                <FormInput label="Date Time" type="date" id="event_name" inputIcon={calenderIcon} />
                             </Col>
 
                             {/* Location */}
