@@ -25,13 +25,6 @@ const CreateNewCleanUpEvent = () => {
         end: null,
     });
 
-    const handleEvent = (event: any, picker: any) => {
-        setDateRange({
-            start: picker.startDate.format("YYYY-MM-DD HH:mm:ss"),
-            end: picker.endDate.format("YYYY-MM-DD HH:mm:ss"),
-        });
-    };
-
     return (
         <>
             <section className={style.new_clean_up_event}>

@@ -19,13 +19,6 @@ const EditExistingEvent = () => {
         end: null,
     });
 
-    const handleEvent = (event: any, picker: any) => {
-        setDateRange({
-            start: picker.startDate.format("YYYY-MM-DD HH:mm:ss"),
-            end: picker.endDate.format("YYYY-MM-DD HH:mm:ss"),
-        });
-    };
-
     return (
         <>
             <section className={style.edit_existing_event}>
@@ -58,15 +51,7 @@ const EditExistingEvent = () => {
 
                             {/* Date & Time */}
                             <Col lg={6}>
-                                <DateRangePicker timePicker timePicker24Hour onApply={handleEvent}>
-                                    <FormInput
-                                        label="Date and Time"
-                                        type="text"
-                                        placeholder="Select Date & Time"
-                                        id="event_date_time"
-                                        inputIcon={calenderIcon}
-                                    />
-                                </DateRangePicker>
+                                <FormInput label="Date Time" type="date" id="event_name" inputIcon={calenderIcon} />
                             </Col>
 
                             {/* Event Status */}
