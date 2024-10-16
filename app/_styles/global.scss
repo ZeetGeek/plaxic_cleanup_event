@@ -346,15 +346,8 @@ table:not(.daterangepicker table) {
     overflow: auto;
 
     .dashboard_page {
-        padding: 58px 30px 30px 30px;
-
-        @media (max-width: 991px) {
-            padding: 40px 20px;
-        }
-
-        @media (max-width: 575px) {
-            padding: 30px 18px;
-        }
+        padding: clamp(0.75rem, 0.175rem + 2.875vw, 3.625rem) clamp(1.125rem, 0.975rem + 0.75vw, 1.875rem)
+            clamp(1.125rem, 0.975rem + 0.75vw, 1.875rem) clamp(1.125rem, 0.975rem + 0.75vw, 1.875rem);
     }
 
     @media (max-width: 991px) {
@@ -385,7 +378,7 @@ table:not(.daterangepicker table) {
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: $white_color;
-    padding: 30px;
+    padding: clamp(0.75rem, 0.525rem + 1.125vw, 1.875rem);
 
     &.no_padding {
         padding: 0px;
