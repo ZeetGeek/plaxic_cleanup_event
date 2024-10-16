@@ -15,11 +15,4 @@ export const OtherFormSchema = Yup.object({
 	message: Yup.string().required("Message is required")
 });
 
-export const AdminLoginSchema = Yup.object({
-	email: Yup.string().email("Invalid email format").required("Email is required"),
-	password: Yup.string().required("Password is required")
-});
 
-export const ResetPasswordEmailSchema = Yup.object({
-	email: Yup.string().email("Invalid email format").required("Email is required")
-});
