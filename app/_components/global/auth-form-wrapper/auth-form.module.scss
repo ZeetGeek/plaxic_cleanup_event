@@ -29,8 +29,7 @@
     }
 
     .content {
-        padding-left: 26px;
-        padding-right: 26px;
+        padding: 0px clamp(1.25rem, 1.175rem + 0.375vw, 1.625rem) 0px clamp(1.25rem, 1.175rem + 0.375vw, 1.625rem);
 
         .description {
             margin-top: 18px;

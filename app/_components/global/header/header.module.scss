@@ -1,7 +1,7 @@
 .header {
     background-color: $primary_color;
-    height: 4.8125rem;
-    padding: 0px 1.75rem;
+    height: clamp(3.75rem, 3.5375rem + 1.0625vw, 4.8125rem);
+    padding: 0px clamp(0.75rem, 0.55rem + 1vw, 1.75rem);
     color: $white_color;
     position: sticky;
     top: 0;
@@ -9,6 +9,15 @@
     width: 100%;
     z-index: 9;
     @include flex(flex-start, center);
+
+    .logo {
+        width: clamp(6.25rem, 5.75rem + 2.5vw, 8.75rem);
+        height: auto;
+
+        @media (width < 992px) {
+            margin-top: -4px;
+        }
+    }
 
     .mobile_menu {
         display: none;

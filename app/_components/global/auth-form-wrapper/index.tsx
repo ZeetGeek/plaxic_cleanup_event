@@ -23,7 +23,7 @@ const AuthFormWrapper = ({ title, className, children, description }: AuthFormWr
                 <div className={`${style.auth_form_wp} mx-md-5 mx-4`}>
                     <Container className="container-0">
                         <Row className="align-content-between row-0">
-                            <Col lg={6} className="py-4 py-lg-0 order-2 order-lg-1">
+                            <Col lg={6} className="py-lg-4 py-3 py-lg-0 order-2 order-lg-1">
                                 <div
                                     className={`${style.content} ${className} d-flex flex-column align-items-start justify-content-center h-100`}
                                 >

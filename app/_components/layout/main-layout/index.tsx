@@ -13,6 +13,7 @@ import { useAuthContext } from "@/_context/auth/AuthContext";
 import Sidebar from "@/_components/global/sidebar";
 import Image from "next/image";
 import LoadingJPG from "@/images/loading.jpg";
+import { ToastContainer } from "react-toastify";
 
 interface LayoutWrapperProps {
     children: ReactNode;
@@ -73,6 +74,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps): JSX.Element => {
                         </div>
                     </>
                 )}
+                <ToastContainer />
             </body>
         </>
     );

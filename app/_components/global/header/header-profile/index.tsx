@@ -26,32 +26,36 @@ const HeaderProfile = () => {
 
     return (
         <>
-        <div className={style.header_profile}>
-            <Dropdown className="bs-dropdown">
-                <Dropdown.Toggle>
-                    <div className={style.profile}>
-                        <div className="d-row-center">
-                            <div className={style.user_image}>
-                                <Image src={authUser?.photoURL || userImage} height={35} width={35} alt="user image" />
-                            </div>
-                            <div className="d-row-center gap-2">
-                                <div className={`${style.user_name} d-none d-sm-block`}>
-                                    {authUser?.username || "Username"}
+            <div className={style.header_profile}>
+                <Dropdown className="bs-dropdown">
+                    <Dropdown.Toggle>
+                        <div className={style.profile}>
+                            <div className="d-row-center">
+                                <div className={style.user_image}>
+                                    <Image
+                                        src={authUser?.photoURL || userImage}
+                                        height={35}
+                                        width={35}
+                                        alt="user image"
+                                    />
                                 </div>
-                                <Image src={dropdownIcon} height={24} width={24} alt="dropdown image" />
+                                <div className="d-row-center gap-2">
+                                    <div className={`${style.user_name} d-none d-sm-block`}>
+                                        {authUser?.username || "Username"}
+                                    </div>
+                                    <Image src={dropdownIcon} height={24} width={24} alt="dropdown image" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Dropdown.Toggle>
+                    </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                    <Dropdown.Item onClick={userLogout}>Logout</Dropdown.Item>
-                    <div className="d-block d-sm-none">
-                        <Dropdown.Item href="#">Notification</Dropdown.Item>
-                        <Dropdown.Item href="#">Add Content</Dropdown.Item>
-                    </div>
-                </Dropdown.Menu>
-            </Dropdown>
+                    <Dropdown.Menu>
+                        <div className="d-block d-sm-none">
+                            <Dropdown.Item href="#">Notification</Dropdown.Item>
+                        </div>
+                        <Dropdown.Item onClick={userLogout}>Logout</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
             </div>
         </>
     );
