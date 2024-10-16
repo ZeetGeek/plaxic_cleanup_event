@@ -65,7 +65,11 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps): JSX.Element => {
                     <>
                         <div className="d-flex align-items-start">
                             <div className="sidebar_wp" ref={sidebarRef}>
-                                <Sidebar sidebarShow={sidebar} onClick={() => setSidebar(!sidebar)} />
+                                <Sidebar
+                                    sidebarShow={sidebar}
+                                    onClick={() => setSidebar(!sidebar)}
+                                    onSidebarLinkClick={() => setSidebar(!sidebar)}
+                                />
                             </div>
                             <div className="dashboard_wp">
                                 <Header onClick={() => setSidebar(!sidebar)} />

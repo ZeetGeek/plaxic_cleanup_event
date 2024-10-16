@@ -499,6 +499,19 @@ table:not(.daterangepicker table) {
     }
 }
 
+.dropdown-toggle {
+    &,
+    &::before,
+    &::after,
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+        all: unset !important;
+    }
+}
+
 .pollution_data {
     .pollution_data_form {
         .row {

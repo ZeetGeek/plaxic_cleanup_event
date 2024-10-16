@@ -7,7 +7,11 @@ import dropdownIcon from "@/images/dropdown.svg";
 import style from "./sidebar-links.module.scss";
 import { SidebarLinks as data } from "@/lib/utils/sidebar-data";
 
-const SidebarLinks = (): JSX.Element => {
+interface sidebarLinksProps {
+    onSidebarLinkClick: () => void;
+}
+
+const SidebarLinks = ({ onSidebarLinkClick }: sidebarLinksProps): JSX.Element => {
     const [openMenus, setOpenMenus] = useState<Array<string>>([]);
     const pathName = usePathname();
 
@@ -91,6 +95,7 @@ const SidebarLinks = (): JSX.Element => {
                                 {v.subLinks.map((v2, i2) => (
                                     <li key={i2}>
                                         <Link
+                                            onClick={onSidebarLinkClick}
                                             href={v2.navigate}
                                             title={v2.name}
                                             className={`${style.sub_link} ${

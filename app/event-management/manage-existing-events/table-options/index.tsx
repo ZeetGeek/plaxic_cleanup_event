@@ -5,6 +5,7 @@ import ShortByIcon from "@/images/short-by.svg";
 import ThreeDotIcon from "@/images/three-dot.svg";
 import style from "./table-options.module.scss";
 import clsx from "clsx";
+import { Dropdown } from "react-bootstrap";
 
 const TableOptions = () => {
     return (
@@ -21,7 +22,6 @@ const TableOptions = () => {
                     <Image src={FilterIcon} height={16} width={16} alt="filter icon" />
                     Filter
                 </button>
-<<<<<<< HEAD
                 <Dropdown className={style.filter_btn_dropdown}>
                     <Dropdown.Toggle>
                         <div className={style.filter_btn}>
@@ -35,12 +35,6 @@ const TableOptions = () => {
                         <Dropdown.Item href="#">Date & Time</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-=======
-                <button className={style.filter_btn}>
-                    <Image src={ShortByIcon} height={16} width={16} alt="filter icon" />
-                    Short by
-                </button>
->>>>>>> 94442a64b7a6775a93609feb2a9f26a9843acfcc
                 <button className={clsx(style.filter_btn, style.three_dot)}>
                     <Image src={ThreeDotIcon} height={16} width={16} alt="filter icon" />
                 </button>

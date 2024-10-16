@@ -29,6 +29,6 @@
 
     .header_extras {
         margin-left: auto;
-        @include flex(flex-end, center, 16px);
+        @include flex(flex-end, center, clamp(0.5rem, 0.4rem + 0.5vw, 1rem));
     }
 }

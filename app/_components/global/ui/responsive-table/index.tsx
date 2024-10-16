@@ -3,7 +3,7 @@ import clsx from "clsx";
 interface ResponsiveTableProps {
     children: React.ReactNode;
     width?: number;
-    className: string;
+    className?: string;
 }
 
 const ResponsiveTable = ({ children, width, className }: ResponsiveTableProps) => {

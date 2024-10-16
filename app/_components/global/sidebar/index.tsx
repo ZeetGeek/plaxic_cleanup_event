@@ -15,9 +15,10 @@ import style from "./sidebar.module.scss";
 interface SidebarProps {
     sidebarShow: boolean;
     onClick: () => void;
+    onSidebarLinkClick: () => void;
 }
 
-const Sidebar = ({ sidebarShow, onClick }: SidebarProps): JSX.Element => {
+const Sidebar = ({ sidebarShow, onClick, onSidebarLinkClick }: SidebarProps): JSX.Element => {
     return (
         <aside className={`${style.sidebar} ${sidebarShow ? style.show : ""}`}>
             <div className={`${style.logo_wp} d-row-between`}>
@@ -33,7 +34,7 @@ const Sidebar = ({ sidebarShow, onClick }: SidebarProps): JSX.Element => {
                 </div>
             </div>
 
-            <SidebarLinks />
+            <SidebarLinks onSidebarLinkClick={onSidebarLinkClick} />
         </aside>
     );
 };

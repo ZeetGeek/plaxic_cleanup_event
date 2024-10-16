@@ -5,6 +5,11 @@
     background-color: $primary-color;
     color: $white_color;
     padding: 12px 0px;
+    transition: 0.4s;
+
+    @media (width < 360px) {
+        width: 100%;
+    }
 
     @media (max-width: 991px) {
         position: fixed;
