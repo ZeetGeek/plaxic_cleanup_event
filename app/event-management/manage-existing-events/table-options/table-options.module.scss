@@ -1,7 +1,11 @@
 .table_options {
-    padding: 16px 20px;
-    @include flex(space-between, center);
+    padding: 1rem clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+    @include flex(space-between, center, 1rem);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    @media (width < 640px) {
+        flex-direction: column;
+    }
 
     .search {
         @include flex(flex-start, center);
@@ -13,6 +17,10 @@
         border-radius: 8px;
         border: 1px solid #e8e9ed;
         flex-shrink: 0;
+
+        @media (width < 640px) {
+            width: 100%;
+        }
 
         img {
             filter: brightness(0) saturate(100%) invert(35%) sepia(23%) saturate(406%) hue-rotate(172deg)
@@ -31,6 +39,10 @@
     .advance_filter {
         @include flex(flex-end, center, 12px);
 
+        @media (width < 640px) {
+            width: 100%;
+        }
+
         .filter_btn {
             display: flex;
             height: 40px;
@@ -44,6 +56,14 @@
             font-weight: 400;
             color: #556476;
             transition: 0.3s;
+            cursor: pointer;
+
+            @media (width < 640px) {
+                &:not(.three_dot) {
+                    width: 100%;
+                    flex: 1;
+                }
+            }
 
             &:hover {
                 background: $bg_color;
@@ -57,6 +77,21 @@
             &.three_dot {
                 padding: 0px;
                 width: 40px;
+            }
+        }
+
+        .filter_btn_dropdown {
+            &,
+            & > div {
+                &,
+                button {
+                    width: 100% !important;
+                    flex: 1;
+
+                    @media (width < 380px) {
+                        flex: 2;
+                    }
+                }
             }
         }
     }

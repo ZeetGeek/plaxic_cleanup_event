@@ -7,9 +7,9 @@ import { Col, Row } from "react-bootstrap";
 const ViewEventDetails = () => {
     return (
         <section className={style.view_event_details}>
-            <h1 className="h2_title mb-4">View Event Details</h1>
+            <h1 className="h2_title page_title">View Event Details</h1>
             <div className={style.map_description}>
-                <Row className={style.row}>
+                <Row className={"row-x-26"}>
                     <Col>
                         <div className={style.description}>
                             <span>Event description</span>

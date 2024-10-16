@@ -22,12 +22,12 @@ const EditExistingEvent = () => {
     return (
         <>
             <section className={style.edit_existing_event}>
-                <h1 className="h2_title mb-4">Manage Existing Events</h1>
+                <h1 className="h2_title page_title">Manage Existing Events</h1>
                 <div className="layout_box">
                     <form className={style.form} action="#">
-                        <Row className={style.row}>
+                        <Row className={"row-x-36 row-y-28"}>
                             {/* Event Name */}
-                            <Col lg={6}>
+                            <Col sm={6}>
                                 <FormInput
                                     label="Volunteers Name"
                                     type="text"
@@ -36,11 +36,11 @@ const EditExistingEvent = () => {
                                 />
                             </Col>
 
-                            <Col lg={6}>
+                            <Col sm={6}>
                                 <FormInput label="Event Name" type="text" placeholder="Name" id="event_name" />
                             </Col>
 
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormInput
                                     label="Volunteers Contact"
                                     type="text"
@@ -50,12 +50,12 @@ const EditExistingEvent = () => {
                             </Col>
 
                             {/* Date & Time */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormInput label="Date Time" type="date" id="event_name" inputIcon={calenderIcon} />
                             </Col>
 
                             {/* Event Status */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormSelectInput label="Event Status">
                                     <option value="Ongoing">Ongoing</option>
                                     <option value="Upcoming">Upcoming</option>
@@ -64,7 +64,7 @@ const EditExistingEvent = () => {
                             </Col>
 
                             {/* Description */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormTextareaInput
                                     label="Description"
                                     placeholder="Description"
@@ -73,7 +73,7 @@ const EditExistingEvent = () => {
                             </Col>
 
                             {/* Cancel & Delete Button */}
-                            <Col lg={12}>
+                            <Col md={12}>
                                 <div
                                     className={clsx(
                                         style.form_inner_btn,

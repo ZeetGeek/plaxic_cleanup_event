@@ -18,8 +18,25 @@
     font-size: var(--font-sarabun);
 }
 
-::-webkit-scrollbar {
-    display: none;
+.custom_scrollbar {
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f5f5f5;
+        border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $secondary_color;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: green;
+    }
 }
 
 body,
@@ -124,7 +141,7 @@ table:not(.daterangepicker table) {
     tr {
         td,
         th {
-            padding: 10px 20px;
+            padding: clamp(0.5rem, 0.475rem + 0.125vw, 0.625rem) clamp(0.875rem, 0.8rem + 0.375vw, 1.25rem);
             color: $black_color;
             font-size: 14px;
             font-style: normal;
@@ -165,6 +182,18 @@ table:not(.daterangepicker table) {
 
 .row-0 {
     --bs-gutter-x: 0px;
+}
+
+.row-x-36 {
+    --bs-gutter-x: clamp(0.875rem, 0.6rem + 1.375vw, 2.25rem);
+}
+
+.row-x-26 {
+    --bs-gutter-x: clamp(0.875rem, 0.725rem + 0.75vw, 1.625rem);
+}
+
+.row-y-28 {
+    --bs-gutter-y: clamp(0.875rem, 0.7rem + 0.875vw, 1.75rem);
 }
 
 // height and width
@@ -346,8 +375,8 @@ table:not(.daterangepicker table) {
     overflow: auto;
 
     .dashboard_page {
-        padding: clamp(0.75rem, 0.175rem + 2.875vw, 3.625rem) clamp(1.125rem, 0.975rem + 0.75vw, 1.875rem)
-            clamp(1.125rem, 0.975rem + 0.75vw, 1.875rem) clamp(1.125rem, 0.975rem + 0.75vw, 1.875rem);
+        padding: clamp(1.25rem, 0.775rem + 2.375vw, 3.625rem) clamp(0.625rem, 0.375rem + 1.25vw, 1.875rem)
+            clamp(0.625rem, 0.375rem + 1.25vw, 1.875rem) clamp(0.625rem, 0.375rem + 1.25vw, 1.875rem);
     }
 
     @media (max-width: 991px) {
@@ -374,11 +403,15 @@ table:not(.daterangepicker table) {
     padding: clamp(1.25rem, 1.1rem + 0.75vw, 2rem);
 }
 
+.page_title {
+    margin-bottom: clamp(0.875rem, 0.675rem + 1vw, 1.875rem);
+}
+
 .layout_box {
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: $white_color;
-    padding: clamp(0.75rem, 0.525rem + 1.125vw, 1.875rem);
+    padding: clamp(1rem, 0.825rem + 0.875vw, 1.875rem);
 
     &.no_padding {
         padding: 0px;

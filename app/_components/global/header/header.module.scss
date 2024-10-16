@@ -1,7 +1,7 @@
 .header {
     background-color: $primary_color;
     height: clamp(3.75rem, 3.5375rem + 1.0625vw, 4.8125rem);
-    padding: 0px clamp(0.75rem, 0.55rem + 1vw, 1.75rem);
+    padding: 0px clamp(0.5rem, 0.25rem + 1.25vw, 1.75rem);
     color: $white_color;
     position: sticky;
     top: 0;

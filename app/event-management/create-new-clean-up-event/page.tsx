@@ -28,22 +28,22 @@ const CreateNewCleanUpEvent = () => {
     return (
         <>
             <section className={style.new_clean_up_event}>
-                <h1 className="h2_title mb-4">Create New Clean-Up Event</h1>
+                <h1 className="h2_title page_title">Create New Clean-Up Event</h1>
                 <div className="layout_box">
                     <form className={style.form} action="#">
-                        <Row className={style.row}>
+                        <Row className={"row-x-36 row-y-28"}>
                             {/* Event Name */}
-                            <Col lg={6}>
+                            <Col sm={6}>
                                 <FormInput label="Event Name" type="text" placeholder="Name" id="event_name" />
                             </Col>
 
                             {/* Date & Time */}
-                            <Col lg={6}>
+                            <Col sm={6}>
                                 <FormInput label="Date Time" type="date" id="event_name" inputIcon={calenderIcon} />
                             </Col>
 
                             {/* Location */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormInput
                                     label="Location"
                                     type="text"
@@ -51,13 +51,14 @@ const CreateNewCleanUpEvent = () => {
                                     id="event_location"
                                 />
                             </Col>
+
                             {/* Image Upload */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormUploadFile label="Image Upload" />
                             </Col>
 
                             {/* Event Status */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormSelectInput label="Event Status">
                                     <option value="Ongoing">Ongoing</option>
                                     <option value="Upcoming">Upcoming</option>
@@ -66,7 +67,7 @@ const CreateNewCleanUpEvent = () => {
                             </Col>
 
                             {/* Description */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormTextareaInput
                                     label="Description"
                                     placeholder="Description"
@@ -75,7 +76,7 @@ const CreateNewCleanUpEvent = () => {
                             </Col>
 
                             {/* Cancel & Delete Button */}
-                            <Col lg={12}>
+                            <Col md={12}>
                                 <div
                                     className={clsx(
                                         style.form_inner_btn,

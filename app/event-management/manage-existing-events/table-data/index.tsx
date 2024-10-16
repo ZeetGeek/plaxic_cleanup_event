@@ -2,12 +2,13 @@ import Image from "next/image";
 import EditIcon from "@/images/edit.svg";
 import style from "./table-data.module.scss";
 import EventImage from "@/images/user.jpg";
+import ResponsiveTable from "@/components/global/ui/responsive-table";
 import clsx from "clsx";
 
 const TableData = () => {
     return (
         <div className={style.table_data}>
-            <table className="w-100">
+            <ResponsiveTable width={1200}>
                 {/* Table header */}
                 <thead>
                     <tr>
@@ -57,7 +58,7 @@ const TableData = () => {
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </ResponsiveTable>
         </div>
     );
 };

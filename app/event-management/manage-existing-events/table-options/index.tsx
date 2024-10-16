@@ -24,12 +24,12 @@ const TableOptions = () => {
                     <Image src={FilterIcon} height={16} width={16} alt="filter icon" />
                     Filter
                 </button>
-                <Dropdown>
+                <Dropdown className={style.filter_btn_dropdown}>
                     <Dropdown.Toggle>
-                        <button className={style.filter_btn}>
+                        <div className={style.filter_btn}>
                             <Image src={ShortByIcon} height={16} width={16} alt="filter icon" />
                             Short by
-                        </button>
+                        </div>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>

@@ -151,5 +151,5 @@ $font_sm: 14px;
 $font_md: 16px;
 
 // width
-$sidebar_width: 280px;
+$sidebar_width: clamp(16.25rem, 16rem + 1.25vw, 17.5rem);
 $dashboard_wp: calc(100% - $sidebar_width);

@@ -2,12 +2,13 @@ import Image from "next/image";
 import VolunteerImage from "@/images/user.jpg";
 import style from "./view-event-details-table.module.scss";
 import clsx from "clsx";
+import ResponsiveTable from "@/_components/global/ui/responsive-table";
 // import Pagination from "@/_components/global/ui/pagination";
 
 const ViewEventDetailsTable = () => {
     return (
         <div className="layout_box no_padding">
-            <table className={clsx(style.view_event_details, "w-100")}>
+            <ResponsiveTable className={style.view_event_details} width={600}>
                 <thead>
                     <tr>
                         <th>Volunteer Name</th>
@@ -122,7 +123,7 @@ const ViewEventDetailsTable = () => {
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </ResponsiveTable>
             <div className={clsx(style.pagination_wp, "d-flex align-items-center justify-content-between")}>
                 <span>02 of 21</span>
                 {/* <Pagination /> */}

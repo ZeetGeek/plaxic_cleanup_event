@@ -1,18 +1,17 @@
 .new_clean_up_event {
-    .row {
-        --bs-gutter-x: 36px;
-        --bs-gutter-y: 28px;
-    }
-
     .description {
         height: 120px;
     }
 
     .form_inner_btn {
         margin-top: -65px;
+
+        @media (width < 992px) {
+            margin-top: 0px;
+        }
     }
 
     .form_outer_btn {
-        margin-top: 110px;
+        margin-top: clamp(1.25rem, 0.125rem + 5.625vw, 6.875rem);
     }
 }
