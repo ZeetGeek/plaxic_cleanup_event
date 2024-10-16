@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import EditIcon from "@/images/edit.svg";
 import style from "./table-data.module.scss";
 import EventImage from "@/images/user.jpg";
@@ -6,19 +6,19 @@ import ResponsiveTable from "@/components/global/ui/responsive-table";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 
-interface Event {
-    id: number;
-    name: string;
-    dateTime: string;
-    location: string;
-    description: string;
-    status: "Completed" | "Upcoming" | "Ongoing";
-    image: StaticImageData;
-}
+// interface Event {
+//     id: number;
+//     name: string;
+//     dateTime: string;
+//     location: string;
+//     description: string;
+//     status: "Completed" | "Upcoming" | "Ongoing";
+//     image: StaticImageData;
+// }
 
 interface TableDataProps {
-    eventsData: Event[];
-    deleteEvent: (eventId: number) => void;
+    eventsData: any;
+    deleteEvent: any;
 }
 
 const TableData = ({ eventsData, deleteEvent }: TableDataProps) => {

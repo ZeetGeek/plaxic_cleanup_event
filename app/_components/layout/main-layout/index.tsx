@@ -2,6 +2,8 @@
 
 // dependencies
 import { ReactNode, useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import logo from "@/images/logo.png";
 
 // hooks
 import useFonts from "@/_hooks/useFonts";
@@ -11,8 +13,6 @@ import Header from "@/_components/global/header";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuthContext } from "@/_context/auth/AuthContext";
 import Sidebar from "@/_components/global/sidebar";
-import Image from "next/image";
-import LoadingJPG from "@/images/loading.jpg";
 import { ToastContainer } from "react-toastify";
 
 interface LayoutWrapperProps {
@@ -56,7 +56,7 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps): JSX.Element => {
                     <>
                         <div className="plaxic_loading d-row-center">
                             {/* <Image src={LoadingJPG} height={150} width={150} alt="loading gif" /> */}
-                            <h1 className="text-white">Loading...</h1>
+                            <Image src={logo} height={62} width={138} alt="plaxic logo" />
                         </div>
                     </>
                 ) : authPages ? (

@@ -98,7 +98,7 @@ const CreateNewCleanUpEvent = () => {
         <>
             <section className={style.new_clean_up_event}>
                 <form className={style.form} method="post" onSubmit={handleSubmit(onSubmit)}>
-                    <h1 className="h2_title mb-4">Create New Clean-Up Event</h1>
+                    <h1 className="h2_title page_title">Create New Clean-Up Event</h1>
                     <div className="layout_box">
                         <Row className={"row-x-36 row-y-28"}>
                             {/* Event Name */}

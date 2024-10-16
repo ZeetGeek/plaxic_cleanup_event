@@ -2,15 +2,15 @@
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import style from "./edit-existing-event.module.scss";
-import { DateRangePicker } from "react-bootstrap-daterangepicker";
-import { FormInput, FormSelectInput, FormTextareaInput, FormUploadFile } from "@/_components/global/ui/form-input";
+// import { DateRangePicker } from "react-bootstrap-daterangepicker";
+import { FormInput, FormSelectInput, FormTextareaInput } from "@/_components/global/ui/form-input";
 import calenderIcon from "@/images/calendar.svg";
 import Button from "@/_components/global/ui/button";
 import clsx from "clsx";
 import moment from "moment";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { eventEditSchema, eventSchema } from "@/_assets/schema/events/eventSchema";
+import { eventEditSchema } from "@/_assets/schema/events/eventSchema";
 import { statusData } from "@/_lib/utils/dropdown-data";
 
 interface DateRange {
@@ -57,12 +57,12 @@ const EditExistingEvent = () => {
     return (
         <>
             <section className={style.edit_existing_event}>
-                <h1 className="h2_title mb-4">Manage Existing Events</h1>
+                <h1 className="h2_title page_title">Manage Existing Events</h1>
                 <div className="layout_box">
                     <form className={style.form} onSubmit={handleSubmit(onSubmit)} method="post">
-                        <Row className={style.row}>
+                        <Row className={"row-x-36 row-y-28"}>
                             {/* Event Name */}
-                            <Col lg={6}>
+                            <Col sm={6}>
                                 <FormInput
                                     label="Volunteers Name"
                                     type="text"
@@ -74,7 +74,7 @@ const EditExistingEvent = () => {
                                 />
                             </Col>
 
-                            <Col lg={6}>
+                            <Col sm={6}>
                                 <FormInput
                                     label="Event Name"
                                     type="text"
@@ -86,7 +86,7 @@ const EditExistingEvent = () => {
                                 />
                             </Col>
 
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormInput
                                     label="Volunteers Contact"
                                     type="text"
@@ -99,7 +99,7 @@ const EditExistingEvent = () => {
                             </Col>
 
                             {/* Date & Time */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormInput
                                     label="Date Time"
                                     onChange={handleEvent}
@@ -111,7 +111,7 @@ const EditExistingEvent = () => {
                             </Col>
 
                             {/* Event Status */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormSelectInput
                                     label="Event Status"
                                     name="status"
@@ -127,7 +127,7 @@ const EditExistingEvent = () => {
                             </Col>
 
                             {/* Description */}
-                            <Col lg={6}>
+                            <Col md={6}>
                                 <FormTextareaInput
                                     label="Description"
                                     placeholder="Description"
@@ -139,7 +139,7 @@ const EditExistingEvent = () => {
                             </Col>
 
                             {/* Cancel & Delete Button */}
-                            <Col lg={12}>
+                            <Col md={12}>
                                 <div
                                     className={clsx(
                                         style.form_inner_btn,

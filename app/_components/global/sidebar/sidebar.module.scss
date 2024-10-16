@@ -7,10 +7,6 @@
     padding: 12px 0px;
     transition: 0.4s;
 
-    @media (width < 360px) {
-        width: 100%;
-    }
-
     @media (max-width: 991px) {
         position: fixed;
         top: 0;
@@ -22,6 +18,11 @@
         &.show {
             left: 0%;
         }
+    }
+
+    @media (width < 360px) {
+        width: 100%;
+        border: unset;
     }
 
     .logo_wp {
