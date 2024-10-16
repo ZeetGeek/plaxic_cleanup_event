@@ -1,14 +1,12 @@
 "use client";
 import { useState } from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import style from "./create-new-clean-up-event.module.scss";
-import { DateRangePicker } from "react-bootstrap-daterangepicker";
 import {
-    FormDateInput,
-    FormInput,
-    FormSelectInput,
-    FormTextareaInput,
-    FormUploadFile,
+  FormInput,
+  FormSelectInput,
+  FormTextareaInput,
+  FormUploadFile,
 } from "@/_components/global/ui/form-input";
 import calenderIcon from "@/images/calendar.svg";
 import Button from "@/_components/global/ui/button";
@@ -17,10 +15,12 @@ import { eventSchema } from "@/_assets/schema/events/eventSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import moment from "moment";
+import { statusData } from "@/_lib/utils/dropdown-data";
+// import { addDoc, collection } from "firebase/firestore";
+// import { db } from "@/firebase/firebase";
 
 interface DateRange {
   start: string | null;
-  end: string | null;
 }
 
 interface eventFormInputs {
@@ -28,19 +28,15 @@ interface eventFormInputs {
   location: string;
   description: string;
   status: string;
-  event_image: string;
 }
 
-interface statusData {
-  label: string;
-  value: string;
-}
+
 
 const CreateNewCleanUpEvent = () => {
   const [dateRange, setDateRange] = useState<DateRange>({
-    start: moment().startOf("month").format("MM/DD/YYYY"),
-    end: moment().endOf("month").format("MM/DD/YYYY"),
+    start:moment().startOf("month").format("M/D/YYYY, h:mm A"),
   });
+  const [imageFile, setImageFile] = useState();
 
   const {
     register,
@@ -51,56 +47,68 @@ const CreateNewCleanUpEvent = () => {
       event_name: "",
       location: "",
       description: "",
-      event_image: "",
+      status: statusData[0]?.value,
     },
     resolver: yupResolver(eventSchema),
   });
 
   const handleEvent = (event: any, picker: any) => {
     setDateRange({
-      start: picker.startDate.format("MM/DD/YYYY"),
-      end: picker.endDate.format("MM/DD/YYYY"),
+      start: picker.startDate,
+      
     });
   };
 
-  const onSubmit = (data: eventFormInputs) => {
-    console.log(data, "kkkk");
+  const onSubmit = async (data: eventFormInputs) => {
+    try {
+      // Date range to store
+      const eventDates = {
+        start: dateRange.start,
+      };
 
-    const fileInput = data?.event_image?.[0];
+      console.log(data, "data");
+      console.log(eventDates, "eventDates");
+      console.log(imageFile, "file");
 
-    console.log(fileInput,"kkkkkkk");
-    
+      // Add document to Firestore
+      // const docRef = await addDoc(collection(db, "events"), {
+      //   ...data,
+      //   eventDates,
+      //   image: imageFile
+
+      // });
+
+      // console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
-  const statusData: statusData[] = [
-    { label: "Ongoing", value: "Ongoing" },
-    { label: "Upcoming", value: "Upcoming" },
-    { label: "Completed", value: "Completed" },
-  ];
 
-    const handleFileChange = (event:any) => {
-     
-        const file = event.target.files[0];
-        if (file?.type === 'image/jpg' || file?.type === 'image/png' || file?.type === 'image/jpeg') {
-            // setImageFile(file);
 
-            console.log(file,"file");
-            
-            const reader = new FileReader();
-            reader.onload = (event:any) => {
-                // setImage(event.target.result);
-            console.log(event.target.result,"event.target.result");
+  const handleFileChange = (event: any) => {
+    const file = event.target.files[0];
+    if (
+      file?.type === "image/jpg" ||
+      file?.type === "image/png" ||
+      file?.type === "image/jpeg"
+    ) {
+      setImageFile(file);
 
-            };
-            reader.readAsDataURL(file);
-        } else {
-          
-            return;
-        }
-    };
+      console.log(file, "file");
 
-    console.log(dateRange,"date");
-    
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
+        // setImage(event.target.result);
+        console.log(event.target.result, "event.target.result");
+      };
+      reader.readAsDataURL(file);
+    } else {
+      return;
+    }
+  };
+
+
   return (
     <>
       <section className={style.new_clean_up_event}>
@@ -125,14 +133,21 @@ const CreateNewCleanUpEvent = () => {
                 />
               </Col>
 
-                            {/* Date & Time */}
-                            <Col lg={6}>
-                                <FormInput label="Date Time" onChange={handleEvent} type="date" id="event_name" inputIcon={calenderIcon} value={
-                      dateRange.start && dateRange.end
-                        ? `${dateRange.start} - ${dateRange.end}`
-                        : ""
-                    } />
-                            </Col>
+              {/* Date & Time */}
+              <Col lg={6}>
+                <FormInput
+                  label="Date Time"
+                  onChange={handleEvent}
+                  type="date"
+                  id="event_name"
+                  inputIcon={calenderIcon}
+                  value={
+                    dateRange.start 
+                      ?  moment(dateRange.start).format("M/D/YYYY, h:mm A")
+                      : ""
+                  }
+                />
+              </Col>
 
               {/* Location */}
               <Col lg={6}>
@@ -148,11 +163,13 @@ const CreateNewCleanUpEvent = () => {
               </Col>
               {/* Image Upload */}
               <Col lg={6}>
-                <FormUploadFile label="Image Upload"  name="event_image"
-                onChange={handleFileChange}
-            // register={register}
-            // error={errors?.event_image?.message} 
-            />
+                <FormUploadFile
+                  label="Image Upload"
+                  name="event_image"
+                  onChange={handleFileChange}
+                  // register={register}
+                  // error={errors?.event_image?.message}
+                />
               </Col>
 
               {/* Event Status */}
